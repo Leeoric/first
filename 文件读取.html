@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<title>文件读取</title>
+</head>
+<body>
+	<input type="file" name="file" id="file">
+	<img src="" alt="图片" id="img">
+
+	<script type="text/javascript">
+		//本地选中事件后，读取值发生改变，用onchange事件
+		//获取表单元素
+		var file = document.querySelector("#file");
+		var oImg = document.querySelector("#img");
+		//即将显示的图片
+		var img = null;
+		//onchange事件
+		file.onchange = function () {
+			img = file.files[0];
+			var reader = new FileReader();
+			//FileReader对象的readAsDataURL方法可以将读取到的文件编码成Data URL。Data URL是一项特殊的技术，可以将资料(例如图片)内嵌在网页之中，不用放到外部文件。使用Data URL的好处是，您不需要额外再发出一个HTTP 请求到服务器端取得额外的资料；而缺点便是，网页的大小可能会变大。它适合应用在内嵌小图片，不建议将大图像文件编码成Data URL来使用。您的图像文件不能够超过浏览器限定的大小，否则无法读取图像文件。
+			reader.readAsDataURL(img);
+			reader.onload = function() {
+				// console.log(reader);
+				// 改变src属性，将图片显示到网页上
+				oImg.src = this.result;
+			};
+		}
+	</script>
+</body>
+</html>
