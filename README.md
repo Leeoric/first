@@ -1,3 +1,3 @@
-# first
+# littlePractice
 
-平时的小练习会放在这里
+业余小练习会放在这里
