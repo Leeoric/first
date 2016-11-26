@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<title>this</title>
+	<style type="text/css">
+		form {
+			display: table;
+			width: 600px;
+			margin: 0 auto;
+		}
+
+		.tableRow {
+			display: table-row;
+		}
+
+		.tableRow p {
+			display: table-cell;
+			vertical-align: top;
+			padding: 8px;
+		}
+
+		.tableRow p:first-child {
+			width: 200px;
+			text-align: right;
+		}
+
+		textarea {
+			resize: none;
+			overflow: auto;
+		}
+
+		#submit {
+			width: 100px;
+			height: 30px;
+		}
+	</style>
+</head>
+<body>
+<!-- 	用户注册后台表单数据提交接口
+	1.提交地址  http://192.168.21.8/fu/userregiest
+	提交方式：post
+	必填表单数据： 用户名 username    (2~24个字符)
+	邮箱  email         /^\w+([+-.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
+	密码  pwd		  (6~18个字符)
+	性别  gender       (单选 男1女0)
+	户籍所在地  省province、市city  (省市名称长度不低于1)
+	选题表单数据：
+	身份证号码  userid		  (身份证号码)
+	爱好  hobby      （复选  多值参数）
+	个人简介   userdesc    （长文本） 
+-->
+	<form action="http://192.168.21.8/fu/userregiest" method="POST">
+		<fieldset>
+			<div class="tableRow">
+				<p><label for="username">用户名：</label></p>
+				<p><input type="text" name="username" id="username" required></p>
+			</div>
+
+			<div class="tableRow">
+				<p><label for="email">邮箱：</label></p>
+				<p><input type="email" name="email" id="email"></p>
+			</div>
+
+			<div class="tableRow">
+				<p><label for="password">密码：</label></p>
+				<p><input type="password" name="pwd" id="pwd"></p>
+			</div>		
+				
+			<div class="tableRow">
+				<p>
+					<label for="male">性别：</label>
+					
+				</p>
+				<p>
+					<label for="male">男</label>
+					<input type="radio" name="gender" value="1" id="male">
+					<label for="famale">女</label>
+					<input type="radio" name="gender" value="0" id="famale">
+				</p>
+			</div>	
+
+			<div class="tableRow">
+				<p><label for="province">户籍所在地：</label></p>
+				<p>
+					<label>省份：</label>
+					<select name="province" id="province">
+						<option value="hebei">河北省</option>
+						<option value="shandong">山东省</option>
+						<option value="shanxi">陕西省</option>
+						<option value="shanxi2">山西省</option>
+					</select>
+					<label for="city">城市：</label>
+					<select name="city" id="city">
+						<option value="shijiazhuang">石家庄</option>
+						<option value="zaozhuang">枣庄</option>
+						<option value="xuxian">许仙</option>
+						<option value="datong">大同</option>
+					</select>
+				</p>
+			</div>
+				
+				
+			<div class="tableRow">
+				<p><label for="userid">身份证号码：</label></p>
+				<p><input type="t" name="userid" id="userid"></p>
+			</div>	
+
+			<div class="tableRow">
+				<p><label for="hobby">爱好 ：</label></p>
+				<p>
+					<input type="checkbox" name="running" id="running">
+					<label for="running">跑步</label>
+					<input type="checkbox" name="running" id="swimming">
+					<label for="swimming">游泳</label>
+					<input type="checkbox" name="running" id="pinpang">
+					<label for="pinpang">乒乓球</label>
+					<input type="checkbox" name="running" id="basketball">
+					<label for="basketball">篮球</label>
+					
+				</p>	
+			</div>	
+
+			<div class="tableRow">
+				<p><label for="userdesc">个人简介：</label></p>
+				<p><textarea id="userdesc" rows="4" cols="50"></textarea></p>	
+			</div>	
+
+			<div class="tableRow">
+				<p></p>
+				<p><input type="submit" name="submit" value="提交" id="submit"></p>	
+			</div>	
+		</fieldset>
+	</form>
+
+<script type="text/javascript">
+	function $(id) {
+		return document.getElementById(id);
+	}
+
+	var username = $("username");
+	var email = $("email");
+	var password = $("pwd");
+	var userid = $("userid");
+	var userdesc = $("userdesc");
+	//检查 指定的输入框 中的内容是否符合 指定的表达式
+	function check(inp, regEx) {
+		inp.onblur = function () {
+			if (regEx.test(this.value)) {
+				this.nextSibling.innerHTML = "正确";
+				this.nextSibling.style.color = "green";
+			} else {
+				this.nextSibling.innerHTML = "错误";
+				this.nextSibling.style.color = "red";
+			}
+		}
+	}
+
+	//帐号是否合法(字母开头，允许5-16字节，允许字母数字下划线)：^[a-zA-Z][a-zA-Z0-9_]{4,15}$
+	var regUserName = /^[a-zA-Z][a-zA-Z0-9_]{4,15}$/;
+	//邮箱的规律 barack.hussein.obama@white-house.gov.us
+	//var regEmail = /^\w@\w$/;
+	var regEmail = /^\w+([+-.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+	//强密码(必须包含大小写字母和数字的组合，不能使用特殊字符，长度在6-18之间)：^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,10}$  
+	var regPassWord = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,18}$/;
+	// 身份证号(15位、18位数字)：^\d{15}|\d{18}$
+	var regUserId = /^\d{15}|\d{18}$/;
+
+	check(username, regUserName);
+	check(email, regEmail);
+	check(password, regPassWord);
+	check(userid, regUserId);
+
+</script>
+
+<script type="text/javascript">
+	jQuery.noConflict();	//将变量$的控制权交给prototype.js
+
+</script>
+</body>
+</html>
