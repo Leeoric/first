@@ -1,0 +1,373 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+
+.wrap {
+	position: relative;
+	margin: 0 auto;
+	width: 800px;
+	height: 600px;
+	border: 1px solid #000;
+	background-color: #feec7b;
+	z-index: -9;
+}
+
+.head {
+	position: absolute;
+	left: 280px;
+	top: 30px;
+	width: 340px;
+	height: 320px;
+	border: 1px solid #000;
+	border-radius: 50%;
+	background-color: #00a0e9;
+
+}
+
+/*左眼睛*/
+.head:before {
+	position: absolute;
+	left: 85px;
+	top: 35px;
+	display: block;
+	content: "";
+	width: 75px;
+	height: 100px;
+	background-color: #fff;
+	border: 2px solid #000;
+	border-radius: 50%;
+	transform: rotate(-18deg);
+	z-index: 1;
+}
+/*右眼睛*/
+.head:after {
+	position: absolute;
+	left: 167px;
+	top: 15px;
+	display: block;
+	content: "";
+	width: 75px;
+	height: 100px;
+	background-color: #fff;
+	border: 2px solid #000;
+	border-radius: 50%;
+	transform: rotate(-18deg);
+	z-index: 1;
+}
+
+.eyeball1 {
+	position: absolute;
+	left: 137px;
+	top: 72px;
+	width: 15px;
+	height: 35px;
+	background-color: #000;
+	border: 1px solid #000;
+	z-index: 2;
+	border-radius: 50%;
+	transform: rotate(-13deg);
+}
+
+.eyeball1:after {
+	position: absolute;
+	left: 5px;
+	top: 10px;
+	display: block;
+	content: "";
+	width: 7px;
+	height: 11px;
+	background-color: #fff;
+	border: 1px solid transparent;
+	border-radius: 50%;
+	z-index: 2;
+}
+
+.eyeball2 {
+	position: absolute;
+	left: 184px;
+	top: 57px;
+	width: 15px;
+	height: 35px;
+	background-color: #000;
+	border: 1px solid #000;
+	z-index: 2;
+	border-radius: 50%;
+	transform: rotate(-25deg);
+}
+
+.eyeball2:after {
+	position: absolute;
+	left: 5px;
+	top: 10px;
+	display: block;
+	content: "";
+	width: 7px;
+	height: 11px;
+	background-color: #fff;
+	border: 1px solid transparent;
+	border-radius: 50%;
+	z-index: 2;
+}
+
+.face {
+	position: absolute;
+	left: 309px;
+	top: 104px;
+	width: 310px;
+	height: 244px;
+	border: 1px solid #000;
+	border-radius: 50%;
+	background-color: #fff;
+	transform: rotate(-16deg);
+
+}
+
+/*嘴*/
+.mauth {
+	position: absolute;
+	left: 40px;
+	top: 50px;
+	display: block;
+	content: "";
+	width: 267px;
+	height: 186px;
+	border-bottom: 2px solid #000;
+	border-radius: 49%;
+	z-index: 2;
+	transform: rotate(-16deg);
+	overflow: hidden;
+}
+/*嘴上的竖线*/
+.mauth-shuxian {
+	position: absolute;
+	left: 58px;
+	top: 63px;
+	display: block;
+	content: "";
+	width: 110px;
+	height: 141px;
+	border-right: 2px solid #000;
+	border-radius: 43%;
+	z-index: 1;
+}
+
+.nose {
+	position: absolute;
+	left: 446px;
+	top: 128px;
+	width: 40px;
+	height: 40px;
+	background-color: #e0002a;
+	border: 2px solid #000;
+	border-radius: 50%;
+	z-index: 2;
+}
+
+.nose:after {
+	position: absolute;
+	left: 7px;
+	top: 10px;
+	display: block;
+	content: "";
+	width: 12px;
+	height: 12px;
+	background-color: #fff;
+	border: 1px solid transparent;
+	border-radius: 50%;
+	z-index: 1;
+}
+
+.mostach1 {
+	position: absolute;
+	left: 32px;
+	top: 72px;
+	width: 110px;
+	border-top: 2px solid #000;
+	z-index: 2;
+	transform: rotate(14deg);
+}
+
+.mostach2 {
+	position: absolute;
+	left: 26px;
+	top: 99px;
+	width: 110px;
+	border-top: 2px solid #000;
+	z-index: 2;
+	transform: rotate(6deg);
+}
+
+.mostach3 {
+	position: absolute;
+	left: 25px;
+	top: 130px;
+	width: 110px;
+	border-top: 2px solid #000;
+	z-index: 2;
+	transform: rotate(-10deg);
+}
+
+.mostach4 {
+	position: absolute;
+	right: -16px;
+	top: 80px;
+	width: 110px;
+	border-top: 2px solid #000;
+	z-index: 2;
+	transform: rotate(-14deg);
+}
+
+.mostach5 {
+	position: absolute;
+	right: -26px;
+	top: 109px;
+	width: 110px;
+	border-top: 2px solid #000;
+	z-index: 2;
+	transform: rotate(0deg);
+}
+
+.mostach6 {
+	position: absolute;
+	right: -25px;
+	top: 141px;
+	width: 110px;
+	border-top: 2px solid #000;
+	z-index: 2;
+	transform: rotate(10deg);
+}
+
+.lefthand {
+	position: absolute;
+	left: 352px;
+	top: 307px;
+	width: 71px;
+	height: 96px;
+	background-color: #fff;
+	border: 1.5px solid #000;
+	border-radius: 50%;
+	transform: rotate(-58deg);
+	z-index: 2;
+}
+
+.righthand {
+	position: absolute;
+	left: 557px;
+	top: 259px;
+	width: 71px;
+	height: 96px;
+	 background-color: #fff; 
+	border: 1.5px solid #000;
+	border-radius: 50%;
+	transform: rotate(38deg);
+	z-index: -1;
+}
+
+.leftarm {
+	position: absolute;
+	left: 292px;
+	top: 336px;
+	width: 160px;
+	height: 80px;
+	border-right: 1px solid #000;
+	border-bottom: 1px solid #000;
+	background-color: #00a0e9;
+	transform: rotate(13deg);
+	border-radius: 50%;
+	z-index: 1;
+}
+
+.rightarm {
+	position: absolute;
+	left: 544px;
+	top: 305px;
+	width: 80px;
+	height: 80px;
+	border-right: 1px solid #000;
+	border-top: 1px solid #000;
+	background-color: #00a0e9;
+	transform: rotate(13deg);
+	border-radius: 50%;
+	z-index: -2;
+}
+
+.rightarm2 {
+	position: absolute;
+	left: 436px;
+	top: 296px;
+	width: 180px;
+	height: 80px;
+	border: 1px solid #000;
+	border-top: 1px solid #000;
+	background-color: #00a0e9;
+	transform: rotate(22deg);
+	border-radius: 50%;
+	z-index: -3;
+}
+/*屁股*/
+.body1 {
+	position: absolute;
+	left: 140px;
+	top: 200px;
+	width: 232px;
+	height: 202px;
+	background-color: #00a0e9;
+	border: 1px solid #000;
+	border-radius: 50%;
+	z-index: -1;
+}
+
+.leg {
+	position: absolute;
+	left: 105px;
+	top: 301px;
+	width: 182px;
+	height: 110px;
+	background-color: #00a0e9;
+	border-top: 1px solid transparent;
+	border-right: 1px solid transparent;
+	border-left: 1.5px solid #000;
+	border-bottom: 1.5px solid #000;
+	border-radius: 40%;
+	z-index: -1;
+}
+
+.foot {
+	position: absolute;
+	left: 56px;
+	top: 297px;
+	width: 107px;
+	height: 139px;
+	background-color: #fff;
+	border: 1.5px solid #000;
+	border-radius: 50%;
+	transform: rotate(-109deg);
+	z-index: -2;
+}
+
+.weiba {
+	position: absolute;
+	left: 127px;
+	top: 173px;
+	width: 45px;
+	height: 45px;
+	background-color: #e0002a;
+	border: 2px solid #000;
+	border-radius: 50%;
+}
+
+.weiba:after {
+	content: "";
+	position: absolute;
+	left: 30px;
+	top: 33px;
+	width: 10px;
+	height: 29px;
+	display: block;
+	border-right: 2px solid #000;
+	border-radius: 50%;
+	z-index: 2;
+	transform: rotate(-21deg);
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<title>HTML5拖拽事件</title>
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+			background-color: #F7F7F7;
+			position: relative;
+		}
+
+		.box {
+			width: 150px;
+			height: 150px;
+			background-color: yellow;
+			/*position: absolute;
+			top: 100px;
+			left: 50px;*/
+		}
+
+		.box img {
+			width: 150px;
+			height: 150px;
+		}
+
+		.container {
+			width: 150px;
+			height: 150px;
+			background-color: green;
+			position: absolute;
+			top: 100px;
+			left: 50%;
+			margin-left: -150px;
+		}
+
+		.container img {
+			width: 150px;
+			height: 150px;
+		}
+	</style>
+</head>
+<body>
+	
+<!-- 拖拽元素 -->
+	<div class="box"><img src="156.jpg" class="sourceImg"></div>
+	<div class="box"><img src="157.jpg" class="sourceImg"></div>
+	<div class="box"><img src="158.jpg" class="sourceImg"></div>
+	<!-- 目标元素 -->
+	<div class="container">
+		<img src="" class="oImg" alt="">
+	</div>
+
+
+
+<script type="text/javascript">
+var container = document.querySelector(".container"),
+sourceImg = document.getElementsByClassName("sourceImg"),
+oImg = document.querySelector(".oImg");
+
+var sourceImgSrc;
+for (var i = 0; i < sourceImg.length; i++) {
+	sourceImg[i].addEventListener("drag", function () {
+		sourceImgSrc = this.src;
+		// console.log(sourceImgSrc);
+	});
+}
+function drageve(target, sourceImg) {
+	target.addEventListener("dragover", function (ev) {
+		ev.preventDefault();
+	});
+	target.addEventListener("drop", function (ev) {
+		ev.preventDefault();
+		target.src = sourceImgSrc;
+	});
+}
+drageve(oImg, sourceImgSrc);
+</script>
+</body>
+</html>
