@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<title>opTheDoor</title>
+	<style type="text/css">
+		.door {
+			width: 300px;
+			height: 300px;
+			border: 1px solid gray;
+			margin: 50px auto;
+			background: url(szj.jpg) no-repeat center;
+			background-size: cover;
+			position: relative;
+			perspective: 600px;
+			transform-style: preserve-3d;
+		}
+
+		.left {
+			width: 50%;
+			position: absolute;
+			height: 100%;
+			background-color: brown;
+			transform-origin: left center;
+			/*backface-visibility: hidden;*/
+			transform: rotateY(0deg);
+			transition: all 1s;
+		}
+		
+		.right {
+			width: 50%;
+			position: absolute;
+			height: 100%;
+			right: 0;
+			top: 0;
+			background-color: brown;
+			transform-origin: right center;
+			/*backface-visibility: hidden;*/
+			transform: rotateY(0deg);
+			transition: all 1s;
+		}
+
+		.left:before {
+			content: "";
+			position: absolute;
+			width: 15px;
+			height: 15px;
+			border-radius: 50%;
+			right: 10px;
+			top: 50%;
+			z-index: 1;
+			background-color: #fff;
+			transform: translateY(-7.5px);
+		}
+
+		.right:before {
+			content: "";
+			position: absolute;
+			width: 15px;
+			height: 15px;
+			border-radius: 50%;
+			left: 10px;
+			top: 50%;
+			z-index: 1;
+			background-color: #fff;
+			transform: translateY(-7.5px);
+		}
+
+		.door:hover .left {
+			transform: rotateY(-120deg);
+		}
+
+		.door:hover .right {
+			transform: rotateY(120deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="door">
+		<div class="left"></div>
+		<div class="right"></div>
+	</div>
+</body>
+</html>
